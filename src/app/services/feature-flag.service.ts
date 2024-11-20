@@ -13,6 +13,7 @@ export class FeatureFlagService {
     // In case of API giving flags
     // Currently we are using simple Node.js app with Express, which is returning hard-coded value
     return this.http.get<FeatureFlagResponse>('http://localhost:3000/feature-flags')
+    // return this.http.get<FeatureFlagResponse>('https://run.mocky.io/v3/8c124179-7c08-4885-95ac-84419afa33aa')
       .pipe(
         tap((features) => this.features = features)
       );
