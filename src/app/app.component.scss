@@ -1,0 +1,42 @@
+// Add these styles to your existing navigation.component.scss
+.dev-mode-banner {
+  background: #e6e7ee;
+  padding: 8px 20px;
+  text-align: center;
+  color: #44476a;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: relative;
+  margin: 20px;
+  border-radius: 10px;
+
+  // Soft UI shadow
+  box-shadow:
+    3px 3px 6px #d1d3e3,
+    -3px -3px 6px #ffffff;
+
+  // Optional: Add subtle indicator
+  &::before {
+    content: '•';
+    color: #005bea;  // or use any indicator color
+    margin-right: 8px;
+    animation: pulse 2s infinite;
+  }
+}
+
+// Animation for the indicator dot
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .dev-mode-banner {
+    margin: 10px 10px -5px 10px;
+    padding: 6px 15px;
+    font-size: 12px;
+  }
+}
