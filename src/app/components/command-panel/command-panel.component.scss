@@ -1,0 +1,204 @@
+.editor-container {
+  padding: 25px;
+  margin: 20px;
+  background: #e6e7ee;
+  border-radius: 20px;
+
+  textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    background: #e6e7ee;
+    color: #44476a;
+    font-size: 16px;
+    line-height: 1.6;
+    resize: vertical;
+    font-family: 'Inter', sans-serif;
+
+    // Inset shadow for depth
+    box-shadow:
+      inset 5px 5px 10px #d1d3e3,
+      inset -5px -5px 10px #ffffff;
+
+    &:focus {
+      outline: none;
+      box-shadow:
+        inset 6px 6px 12px #d1d3e3,
+        inset -6px -6px 12px #ffffff;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      background: #e6e7ee;
+      color: #44476a;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      // Raised effect
+      box-shadow:
+        5px 5px 10px #d1d3e3,
+        -5px -5px 10px #ffffff;
+
+      &:hover {
+        color: #005bea;
+        transform: translateY(-2px);
+        box-shadow:
+          7px 7px 14px #d1d3e3,
+          -7px -7px 14px #ffffff;
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow:
+          inset 3px 3px 6px #d1d3e3,
+          inset -3px -3px 6px #ffffff;
+      }
+
+      // Special styling for different actions
+      &[type="button"] {
+        min-width: 100px;
+
+        &:first-child { // Apply button
+          background: linear-gradient(145deg, #e6e7ee, #ffffff);
+          color: #2ecc71;
+
+          &:hover {
+            color: #27ae60;
+          }
+        }
+      }
+
+      // Undo/Redo buttons
+      &:nth-child(2), // Undo
+      &:nth-child(3) { // Redo
+        min-width: 80px;
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+          transform: none;
+          box-shadow:
+            3px 3px 6px #d1d3e3,
+            -3px -3px 6px #ffffff;
+        }
+      }
+    }
+  }
+}
+
+// Optional: Add hover states for disabled buttons
+.button-group button:disabled:hover {
+  background: #e6e7ee;
+  color: #44476a;
+  transform: none;
+  box-shadow:
+    3px 3px 6px #d1d3e3,
+    -3px -3px 6px #ffffff;
+}
+
+// Optional: Add focus states for accessibility
+textarea:focus, button:focus {
+  outline: none;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: inherit;
+    border: 2px solid rgba(0, 91, 234, 0.3);
+  }
+}
+
+// Optional: Add loading state
+.button-group button.loading {
+  position: relative;
+  pointer-events: none;
+  color: transparent;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #44476a;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.8s linear infinite;
+  }
+}
+
+.char-count {
+  margin-top: 10px;
+  text-align: right;
+  color: #44476a;
+  font-size: 12px;
+  opacity: 0.7;
+  text-shadow:
+    1px 1px 2px #ffffff,
+    -1px -1px 2px #d1d3e3;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .editor-container {
+    padding: 15px;
+
+    textarea {
+      min-height: 150px;
+      font-size: 14px;
+    }
+
+    .button-group {
+      flex-wrap: wrap;
+
+      button {
+        flex: 1;
+        min-width: 0;
+        padding: 10px 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .editor-container {
+    padding: 15px;
+
+    textarea {
+      min-height: 150px;
+      font-size: 14px;
+    }
+
+    .button-group {
+      flex-wrap: wrap;
+
+      button {
+        flex: 1;
+        min-width: 0;
+        padding: 10px 15px;
+      }
+    }
+  }
+}

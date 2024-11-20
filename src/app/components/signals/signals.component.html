@@ -1,0 +1,21 @@
+<div class="signals-container">
+  <div class="display-values">
+    <div>Count: {{ count() }}</div>
+    <div>Double: {{ double() }}</div>
+  </div>
+
+  <div class="buttons-group">
+    <button (click)="increment()">
+      <i class="fas fa-plus"></i>
+      Increment
+    </button>
+    <button (click)="decrement()">
+      <i class="fas fa-minus"></i>
+      Decrement
+    </button>
+    <button (click)="reset()">
+      <i class="fas fa-undo"></i>
+      Reset
+    </button>
+  </div>
+</div>

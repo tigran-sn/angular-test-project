@@ -1,0 +1,147 @@
+// Optional: Add these CSS variables at the root for easy customization
+:root {
+  --soft-ui-bg: #e6e7ee;
+  --soft-ui-text: #44476a;
+  --soft-ui-shadow-light: #ffffff;
+  --soft-ui-shadow-dark: #d1d3e3;
+  --soft-ui-accent: #005bea;
+}
+
+.banner {
+  background: #e6e7ee;  // Soft UI base color
+  padding: 80px 20px;
+  margin: 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 3px 3px 7px #ffffff,
+    inset -3px -3px 7px #d1d3e3;
+
+  .banner-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 20px;
+    position: relative;
+    background: #e6e7ee;
+    box-shadow:
+      10px 10px 20px #d1d3e3,
+      -10px -10px 20px #ffffff;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow:
+        15px 15px 30px #d1d3e3,
+        -15px -15px 30px #ffffff;
+    }
+  }
+
+  h1 {
+    font-size: 3.2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #44476a;  // Soft UI text color
+    letter-spacing: -0.5px;
+    text-shadow:
+      2px 2px 3px #ffffff,
+      -2px -2px 3px #d1d3e3;
+  }
+
+  p {
+    font-size: 1.3em;
+    margin-bottom: 35px;
+    color: #44476a;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    background: #e6e7ee;
+    color: #44476a;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow:
+      5px 5px 10px #d1d3e3,
+      -5px -5px 10px #ffffff;
+
+    &:hover {
+      color: #005bea;
+      box-shadow:
+        7px 7px 14px #d1d3e3,
+        -7px -7px 14px #ffffff;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      box-shadow:
+        inset 5px 5px 10px #d1d3e3,
+        inset -5px -5px 10px #ffffff;
+      transform: translateY(0);
+    }
+  }
+
+  // Optional subtle background pattern
+  //&::before {
+  //  content: '';
+  //  position: absolute;
+  //  top: 0;
+  //  left: 0;
+  //  width: 100%;
+  //  height: 100%;
+  //  background: repeating-linear-gradient(
+  //      45deg,
+  //      transparent,
+  //      transparent 10px,
+  //      rgba(68, 71, 106, 0.03) 10px,
+  //      rgba(68, 71, 106, 0.03) 20px
+  //  );
+  //}
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+
+    .banner-content {
+      padding: 30px 20px;
+      box-shadow:
+        7px 7px 14px #d1d3e3,
+        -7px -7px 14px #ffffff;
+    }
+
+    h1 {
+      font-size: 2.2em;
+    }
+
+    p {
+      font-size: 1.1em;
+    }
+
+    .cta-button {
+      padding: 12px 30px;
+      font-size: 1em;
+    }
+  }
+}
+
+// Add depth transitions:
+//.banner-content {
+//  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+//}
+
+// Add subtle border:
+//.banner-content {
+//  border: 1px solid rgba(255, 255, 255, 0.3);
+//}
+
+// Add inner glow on hover:
+//.cta-button {
+//  &:hover {
+//    background: linear-gradient(145deg, #e6e7ee, #ffffff);
+//  }
+//}

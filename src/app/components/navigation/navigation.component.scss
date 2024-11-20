@@ -1,0 +1,190 @@
+// navigation.component.scss
+.soft-nav {
+  background: #e6e7ee;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow:
+    5px 5px 10px #d1d3e3,
+    -5px -5px 10px #ffffff;
+  border-radius: 16px;
+  margin: 20px;
+
+  // Brand/Logo
+  .nav-brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: #44476a;
+    text-shadow:
+      2px 2px 3px #ffffff,
+      -2px -2px 3px #d1d3e3;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: #e6e7ee;
+    box-shadow:
+      3px 3px 6px #d1d3e3,
+      -3px -3px 6px #ffffff;
+  }
+
+  // Navigation Links
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      a {
+        padding: 10px 20px;
+        color: #44476a;
+        text-decoration: none;
+        font-weight: 500;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        position: relative;
+
+        // Default state
+        background: #e6e7ee;
+        box-shadow:
+          3px 3px 6px #d1d3e3,
+          -3px -3px 6px #ffffff;
+
+        &:hover {
+          color: #005bea;
+          transform: translateY(-2px);
+          box-shadow:
+            5px 5px 10px #d1d3e3,
+            -5px -5px 10px #ffffff;
+        }
+
+        &:active {
+          transform: translateY(0);
+          box-shadow:
+            inset 3px 3px 6px #d1d3e3,
+            inset -3px -3px 6px #ffffff;
+        }
+
+        &.active {
+          color: #005bea;
+          box-shadow:
+            inset 3px 3px 6px #d1d3e3,
+            inset -3px -3px 6px #ffffff;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 3px;
+            background: #005bea;
+            border-radius: 2px;
+            box-shadow:
+              2px 2px 4px #d1d3e3,
+              -2px -2px 4px #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  // Action Buttons
+  .nav-actions {
+    display: flex;
+    gap: 15px;
+
+    button {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 10px;
+      background: #e6e7ee;
+      color: #44476a;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow:
+        3px 3px 6px #d1d3e3,
+        -3px -3px 6px #ffffff;
+
+      &:hover {
+        color: #005bea;
+        transform: translateY(-2px);
+        box-shadow:
+          5px 5px 10px #d1d3e3,
+          -5px -5px 10px #ffffff;
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow:
+          inset 3px 3px 6px #d1d3e3,
+          inset -3px -3px 6px #ffffff;
+      }
+
+      i {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .soft-nav {
+    padding: 15px;
+    flex-direction: column;
+    gap: 20px;
+
+    .nav-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+
+      li a {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+    }
+
+    .nav-actions {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+// Optional: Dark Mode
+.dark-mode {
+  .soft-nav {
+    background: #2d3436;
+    box-shadow:
+      5px 5px 10px #252a2c,
+      -5px -5px 10px #353e40;
+
+    .nav-brand,
+    .nav-links li a,
+    .nav-actions button {
+      background: #2d3436;
+      color: #ffffff;
+      box-shadow:
+        3px 3px 6px #252a2c,
+        -3px -3px 6px #353e40;
+
+      &:hover {
+        box-shadow:
+          5px 5px 10px #252a2c,
+          -5px -5px 10px #353e40;
+      }
+
+      &:active,
+      &.active {
+        box-shadow:
+          inset 3px 3px 6px #252a2c,
+          inset -3px -3px 6px #353e40;
+      }
+    }
+  }
+}

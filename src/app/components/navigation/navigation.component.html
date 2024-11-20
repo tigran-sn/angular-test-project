@@ -1,0 +1,27 @@
+<nav class="soft-nav">
+  <a class="nav-brand" routerLink="./">
+    <img ngSrc="assets/logo.png" alt="Logo" width="30" height="30">
+  </a>
+
+  <ul class="nav-links">
+    @for (item of menuItems; track item.label) {
+      <li>
+        <a [routerLink]="item.path"
+           routerLinkActive="active">
+          {{ item.label }}
+        </a>
+      </li>
+    } @empty {
+      <li>There are no menu items.</li>
+    }
+  </ul>
+
+<!--  <div class="nav-actions">-->
+<!--    <button class="search-btn">-->
+<!--      <i class="fas fa-search"></i>-->
+<!--    </button>-->
+<!--    <button class="profile-btn">-->
+<!--      <i class="fas fa-user"></i>-->
+<!--    </button>-->
+<!--  </div>-->
+</nav>

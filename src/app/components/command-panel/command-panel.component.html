@@ -1,0 +1,16 @@
+<div class="editor-container">
+  <textarea
+    [(ngModel)]="currentText"
+    placeholder="Enter your text here...">
+  </textarea>
+
+  <div class="char-count">
+    {{ currentText.length || 0 }} characters
+  </div>
+
+  <div class="button-group">
+    <button (click)="applyChanges()">Apply</button>
+    <button (click)="undo()">Undo</button>
+    <button (click)="redo()">Redo</button>
+  </div>
+</div>

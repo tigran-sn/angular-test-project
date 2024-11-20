@@ -1,0 +1,6 @@
+<ng-container *featureFlag="'bannerEnabled'; else notEnabled">
+  <app-banner />
+</ng-container>
+<ng-template #notEnabled>
+  <div>Mail us one for your login.</div>
+</ng-template>
