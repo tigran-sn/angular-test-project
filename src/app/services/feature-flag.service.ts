@@ -1,7 +1,8 @@
 import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Observable, tap} from "rxjs";
+import {Observable, of, tap} from "rxjs";
 import {FeatureFlagKeys, FeatureFlagResponse} from "@app/types";
+import {FEATURE_FLAGS_MOCK} from "@app/mocks";
 
 @Injectable({ providedIn: 'root' })
 export class FeatureFlagService {
@@ -12,21 +13,16 @@ export class FeatureFlagService {
   getFeatureFlags(): Observable<FeatureFlagResponse> {
     // In case of API giving flags
     // Currently we are using simple Node.js app with Express, which is returning hard-coded value
-    return this.http.get<FeatureFlagResponse>('http://localhost:3000/feature-flags')
-    // return this.http.get<FeatureFlagResponse>('https://run.mocky.io/v3/8c124179-7c08-4885-95ac-84419afa33aa')
-      .pipe(
-        tap((features) => this.features = features)
-      );
-
-    // Just mock
-    // return of({
-    //   bannerEnabled: true,
-    // })
+    // return this.http.get<FeatureFlagResponse>('http://localhost:3000/feature-flags')
     //   .pipe(
-    //     tap((features) => {
-    //       this.features = features
-    //     })
-    //   )
+    //     tap((features) => this.features = features)
+    //   );
+
+    // Just mocking the return value
+    return of(FEATURE_FLAGS_MOCK)
+      .pipe(
+        tap(features => this.features = features)
+      )
   }
 
   // getFeatureFlags(): Observable<any> {
