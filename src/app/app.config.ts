@@ -3,12 +3,7 @@ import {provideRouter, withViewTransitions} from '@angular/router';
 
 import { routes } from './app.routes';
 import {GlobalErrorHandler} from "./interceptors/global-error-handler.service";
-import {
-  HTTP_INTERCEPTORS,
-  provideHttpClient,
-  withFetch,
-  withInterceptorsFromDi
-} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptorsFromDi} from "@angular/common/http";
 import {HttpErrorInterceptor} from "./interceptors/http-error.interceptor";
 import {Observable} from "rxjs";
 import {FeatureFlagService, GreetingService} from "./services";

@@ -1,7 +1,4 @@
-import {
-    HttpClient, HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor,
-    HttpRequest,
-} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {inject, Injectable} from "@angular/core";
 import {catchError, Observable, throwError} from "rxjs";
 // import {NavigationExtras} from "@angular/router";
