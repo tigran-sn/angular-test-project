@@ -25,7 +25,12 @@
     ],
     "paths": {
       "@app/*": ["./app/*"],
-      "@environments/*": ["environments/*"]
+      "@environments/*": [
+        "environments/*"
+      ],
+      "custom-components": [
+        "./dist/custom-components"
+      ]
     }
   },
   "angularCompilerOptions": {
