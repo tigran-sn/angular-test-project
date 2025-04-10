@@ -16,73 +16,65 @@ describe('SignalsComponent', () => {
     fixture.detectChanges();
   });
 
+  function getTestEl(testId: string) {
+    return fixture.debugElement.query(By.css(`[data-testid="${testId}"]`));
+  }
+
   it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
   it('should display initial count and double', () => {
-    const countEl = fixture.debugElement.query(
-      By.css('.display-values div:nth-child(1)')
-    ).nativeElement;
-    const doubleEl = fixture.debugElement.query(
-      By.css('.display-values div:nth-child(2)')
-    ).nativeElement;
+    const countEl = getTestEl('count-display').nativeElement;
+    const doubleEl = getTestEl('double-display').nativeElement;
 
     expect(countEl.textContent).toContain('Count: 0');
     expect(doubleEl.textContent).toContain('Double: 0');
   });
 
-  it('should increment count and update double', () => {
-    component.increment();
+  it('should increment count and update double on button click', () => {
+    getTestEl('increment-btn').nativeElement.click();
     fixture.detectChanges();
 
-    const countEl = fixture.debugElement.query(
-      By.css('.display-values div:nth-child(1)')
-    ).nativeElement;
-    const doubleEl = fixture.debugElement.query(
-      By.css('.display-values div:nth-child(2)')
-    ).nativeElement;
+    const countEl = getTestEl('count-display').nativeElement;
+    const doubleEl = getTestEl('double-display').nativeElement;
 
     expect(countEl.textContent).toContain('Count: 1');
     expect(doubleEl.textContent).toContain('Double: 2');
   });
 
-  it('should decrement count and update double', () => {
-    component.count.set(2); // preset state
-    component.decrement();
+  it('should decrement count and update double on button click', () => {
+    component.count.set(2);
     fixture.detectChanges();
 
-    const countEl = fixture.debugElement.query(
-      By.css('.display-values div:nth-child(1)')
-    ).nativeElement;
-    const doubleEl = fixture.debugElement.query(
-      By.css('.display-values div:nth-child(2)')
-    ).nativeElement;
+    getTestEl('decrement-btn').nativeElement.click();
+    fixture.detectChanges();
+
+    const countEl = getTestEl('count-display').nativeElement;
+    const doubleEl = getTestEl('double-display').nativeElement;
 
     expect(countEl.textContent).toContain('Count: 1');
     expect(doubleEl.textContent).toContain('Double: 2');
   });
 
-  it('should reset count to 0 and update double', () => {
-    component.count.set(10);
-    component.reset();
+  it('should reset count to 0 on button click', () => {
+    component.count.set(5);
     fixture.detectChanges();
 
-    const countEl = fixture.debugElement.query(
-      By.css('.display-values div:nth-child(1)')
-    ).nativeElement;
-    const doubleEl = fixture.debugElement.query(
-      By.css('.display-values div:nth-child(2)')
-    ).nativeElement;
+    getTestEl('reset-btn').nativeElement.click();
+    fixture.detectChanges();
+
+    const countEl = getTestEl('count-display').nativeElement;
+    const doubleEl = getTestEl('double-display').nativeElement;
 
     expect(countEl.textContent).toContain('Count: 0');
     expect(doubleEl.textContent).toContain('Double: 0');
   });
 
-  it('should trigger effect and log changes when count changes', () => {
+  it('should log correct output when count changes via button click', () => {
     spyOn(console, 'log');
 
-    component.increment();
+    getTestEl('increment-btn').nativeElement.click();
     fixture.detectChanges();
 
     expect(console.log).toHaveBeenCalledWith('Count changed', 1);
