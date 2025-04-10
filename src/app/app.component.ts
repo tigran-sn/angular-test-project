@@ -1,7 +1,7 @@
-import {Component, inject, isDevMode, OnInit} from '@angular/core';
+import { Component, inject, isDevMode, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {TestClass} from "./interceptors/http-error.interceptor";
-import {NavigationComponent} from "@app/components/navigation/navigation.component";
+import { TestClass } from './interceptors/http-error.interceptor';
+import { NavigationComponent } from '@app/components/navigation/navigation.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ import {NavigationComponent} from "@app/components/navigation/navigation.compone
 export class AppComponent implements OnInit {
   private readonly testClass = inject(TestClass);
   readonly isDevMode = isDevMode();
+  title = 'test-project';
 
   ngOnInit() {
     this.testClass.getData().subscribe(console.log);

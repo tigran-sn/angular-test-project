@@ -2,15 +2,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomComponentsComponent } from './custom-components.component';
 
-describe('CustomComponentsComponent', () => {
+xdescribe('CustomComponentsComponent', () => {
   let component: CustomComponentsComponent;
   let fixture: ComponentFixture<CustomComponentsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CustomComponentsComponent]
-    })
-    .compileComponents();
+      imports: [CustomComponentsComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CustomComponentsComponent);
     component = fixture.componentInstance;

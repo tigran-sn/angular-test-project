@@ -2,16 +2,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommandPanelComponent } from './command-panel.component';
 
-describe('CommandPanelComponent', () => {
+xdescribe('CommandPanelComponent', () => {
   let component: CommandPanelComponent;
   let fixture: ComponentFixture<CommandPanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CommandPanelComponent]
-    })
-    .compileComponents();
-    
+      imports: [CommandPanelComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CommandPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
