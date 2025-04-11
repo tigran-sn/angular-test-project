@@ -1,16 +1,14 @@
 <div class="editor-container">
-  <textarea
-    [(ngModel)]="currentText"
-    placeholder="Enter your text here...">
+  <textarea data-testid="text-input" [(ngModel)]="currentText" placeholder="Enter your text here...">
   </textarea>
 
-  <div class="char-count">
+  <div class="char-count" data-testid="char-count">
     {{ currentText.length || 0 }} characters
   </div>
 
   <div class="button-group">
-    <button (click)="applyChanges()">Apply</button>
-    <button (click)="undo()">Undo</button>
-    <button (click)="redo()">Redo</button>
+    <button data-testid="apply-btn" (click)="applyChanges()">Apply</button>
+    <button data-testid="undo-btn" (click)="undo()">Undo</button>
+    <button data-testid="redo-btn" (click)="redo()">Redo</button>
   </div>
 </div>
