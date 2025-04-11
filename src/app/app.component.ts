@@ -13,7 +13,6 @@ import { NavigationComponent } from '@app/components/navigation/navigation.compo
 export class AppComponent implements OnInit {
   private readonly testClass = inject(TestClass);
   readonly isDevMode = isDevMode();
-  title = 'test-project';
 
   ngOnInit() {
     this.testClass.getData().subscribe(console.log);
